@@ -17,11 +17,11 @@ Perl::Critic::Git - Bond git and Perl::Critic to blame the right people for viol
 
 =head1 VERSION
 
-Version 1.0.1
+Version 1.1.0
 
 =cut
 
-our $VERSION = '1.0.1';
+our $VERSION = '1.1.0';
 
 
 =head1 SYNOPSIS
@@ -302,6 +302,17 @@ sub _analyze_file
 		if $self->_is_analyzed();
 	
 	my $file = $self->_get_file();
+	
+	# Git::Repository uses GIT_DIR and GIT_WORK_TREE to determine the path
+	# to the git repository when those environment variables are present.
+	# This however poses problems here, when those variables point to a
+	# different repository then the one the file to analyze belongs to,
+	# or when they use relative paths.
+	# To force Git::Repository to derive the git repository's path from
+	# the file path, we thus locally delete GIT_DIR and GIT_WORK_TREE.
+	local %ENV = %ENV;
+	delete( $ENV{'GIT_DIR'} );
+	delete( $ENV{'GIT_WORK_TREE'} );
 	
 	# Do a git blame on the file.
 	my ( undef, $directory, undef ) = File::Basename::fileparse( $file );
