@@ -4,7 +4,7 @@
       "Guillaume Aubert <aubertg@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120530",
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "artistic_1"
    ],
@@ -16,15 +16,9 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Carp" : "0",
-            "Data::Dumper" : "0",
             "English" : "0",
-            "File::Basename" : "0",
             "File::Path" : "0",
             "File::Spec" : "0",
-            "Git::Repository" : "0",
-            "Git::Repository::Plugin::Blame" : "0",
-            "Perl::Critic" : "0",
             "Test::Deep" : "0",
             "Test::Exception" : "0",
             "Test::Git" : "0",
@@ -38,6 +32,12 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
+            "Data::Dumper" : "0",
+            "File::Basename" : "0",
+            "Git::Repository" : "0",
+            "Git::Repository::Plugin::Blame" : "0",
+            "Perl::Critic" : "0",
             "perl" : "5.006"
          }
       }
@@ -45,7 +45,7 @@
    "provides" : {
       "Perl::Critic::Git" : {
          "file" : "lib/Perl/Critic/Git.pm",
-         "version" : "v1.1.0"
+         "version" : "v1.1.1"
       }
    },
    "release_status" : "stable",
@@ -55,11 +55,11 @@
       },
       "homepage" : "https://metacpan.org/release/Perl-Critic-Git",
       "license" : [
-         "http://opensource.org/licenses/artistic-license.php"
+         "http://www.perlfoundation.org/artistic_license_1_0"
       ],
       "repository" : {
-         "url" : "https://sourceforge.net/p/perlcriticgit/code"
+         "url" : "https://github.com/guillaumeaubert/Perl-Critic-Git"
       }
    },
-   "version" : "v1.1.0"
+   "version" : "v1.1.1"
 }
