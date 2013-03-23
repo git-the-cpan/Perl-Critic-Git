@@ -20,8 +20,8 @@ perldoc command.
 
 You can also look for information at:
 
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Git
+    GitHub (report bugs here)
+        https://github.com/guillaumeaubert/Perl-Critic-Git/issues
 
     AnnoCPAN, Annotated CPAN documentation
         http://annocpan.org/dist/Perl-Critic-Git
@@ -29,13 +29,13 @@ You can also look for information at:
     CPAN Ratings
         http://cpanratings.perl.org/d/Perl-Critic-Git
 
-    Search CPAN
-        http://search.cpan.org/dist/Perl-Critic-Git/
+    MetaCPAN
+        https://metacpan.org/release/Perl-Critic-Git
 
 
 LICENSE AND COPYRIGHT
 
-Copyright (C) 2012 Guillaume Aubert
+Copyright (C) 2012-2013 Guillaume Aubert
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License version 3 as published by the Free

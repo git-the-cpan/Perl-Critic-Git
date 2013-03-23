@@ -17,11 +17,11 @@ Perl::Critic::Git - Bond git and Perl::Critic to blame the right people for viol
 
 =head1 VERSION
 
-Version 1.1.2
+Version 1.1.3
 
 =cut
 
-our $VERSION = '1.1.2';
+our $VERSION = '1.1.3';
 
 
 =head1 SYNOPSIS
@@ -393,9 +393,10 @@ Guillaume Aubert, C<< <aubertg at cpan.org> >>.
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-perl-critic-git at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Perl-Critic-Git>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests through the web interface at
+Lhttps://github.com/guillaumeaubert/Perl-Critic-Git/issues>.
+I will be notified, and then you'll automatically be notified of progress on
+your bug as I make changes.
 
 
 =head1 SUPPORT
@@ -409,9 +410,9 @@ You can also look for information at:
 
 =over 4
 
-=item * RT: CPAN's request tracker
+=item * GitHub (report bugs there)
 
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Git>
+L<https://github.com/guillaumeaubert/Perl-Critic-Git/issues>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -421,9 +422,9 @@ L<http://annocpan.org/dist/Perl-Critic-Git>
 
 L<http://cpanratings.perl.org/d/Perl-Critic-Git>
 
-=item * Search CPAN
+=item * MetaCPAN
 
-L<http://search.cpan.org/dist/Perl-Critic-Git/>
+L<https://metacpan.org/release/Perl-Critic-Git>
 
 =back
 
@@ -437,7 +438,7 @@ and write code for them!
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2012 Guillaume Aubert.
+Copyright 2012-2013 Guillaume Aubert.
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License version 3 as published by the Free
