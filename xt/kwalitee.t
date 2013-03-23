@@ -6,11 +6,6 @@ use warnings;
 use Test::More;
 
 
-# Only test Kwalitee if we're doing release tests, not regular installation
-# tests.
-plan( skip_all => 'Author tests not required for installation.' )
-	unless $ENV{'RELEASE_TESTING'};
-
 # Load extra tests.
 eval
 {
@@ -22,6 +17,7 @@ plan( skip_all => 'Test::Kwalitee required to evaluate code' )
 # Run extra tests.
 Test::Kwalitee::Extra->import(
 	qw(
+		:optional
 		!has_example
 	)
 );
