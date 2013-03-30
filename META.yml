@@ -3,14 +3,13 @@ abstract: 'Bond git and Perl::Critic to blame the right people for violations.'
 author:
   - 'Guillaume Aubert <aubertg@cpan.org>'
 build_requires:
-  English: 0
   File::Path: 0
   File::Spec: 0
   Test::Deep: 0
   Test::Exception: 0
+  Test::FailWarnings: 0
   Test::Git: 0
   Test::More: 0
-  Test::NoWarnings: 0
 configure_requires:
   Module::Build: 0
 dynamic_config: 1
@@ -23,7 +22,7 @@ name: Perl-Critic-Git
 provides:
   Perl::Critic::Git:
     file: lib/Perl/Critic/Git.pm
-    version: v1.1.4
+    version: v1.1.5
 requires:
   Carp: 0
   Data::Dumper: 0
@@ -37,4 +36,4 @@ resources:
   homepage: https://metacpan.org/release/Perl-Critic-Git
   license: http://www.gnu.org/licenses/gpl-3.0.txt
   repository: https://github.com/guillaumeaubert/Perl-Critic-Git
-version: v1.1.4
+version: v1.1.5

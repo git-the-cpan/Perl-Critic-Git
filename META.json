@@ -16,14 +16,13 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "English" : "0",
             "File::Path" : "0",
             "File::Spec" : "0",
             "Test::Deep" : "0",
             "Test::Exception" : "0",
+            "Test::FailWarnings" : "0",
             "Test::Git" : "0",
-            "Test::More" : "0",
-            "Test::NoWarnings" : "0"
+            "Test::More" : "0"
          }
       },
       "configure" : {
@@ -46,7 +45,7 @@
    "provides" : {
       "Perl::Critic::Git" : {
          "file" : "lib/Perl/Critic/Git.pm",
-         "version" : "v1.1.4"
+         "version" : "v1.1.5"
       }
    },
    "release_status" : "stable",
@@ -62,5 +61,5 @@
          "url" : "https://github.com/guillaumeaubert/Perl-Critic-Git"
       }
    },
-   "version" : "v1.1.4"
+   "version" : "v1.1.5"
 }

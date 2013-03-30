@@ -8,7 +8,6 @@ WriteMakefile
   'PREREQ_PM' => {
                    'Carp' => 0,
                    'Data::Dumper' => 0,
-                   'English' => 0,
                    'File::Basename' => 0,
                    'File::Path' => 0,
                    'File::Spec' => 0,
@@ -17,9 +16,9 @@ WriteMakefile
                    'Perl::Critic' => 0,
                    'Test::Deep' => 0,
                    'Test::Exception' => 0,
+                   'Test::FailWarnings' => 0,
                    'Test::Git' => 0,
-                   'Test::More' => 0,
-                   'Test::NoWarnings' => 0
+                   'Test::More' => 0
                  },
   'INSTALLDIRS' => 'site',
   'EXE_FILES' => [],
