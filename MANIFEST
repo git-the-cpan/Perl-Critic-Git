@@ -8,7 +8,7 @@ MANIFEST.SKIP
 META.json
 META.yml
 Makefile.PL
-README
+README.md
 examples/examples.txt
 ignore.txt
 lib/Perl/Critic/Git.pm
@@ -28,6 +28,7 @@ xt/changes.t
 xt/kwalitee.t
 xt/manifest.t
 xt/module_versions.t
+xt/mojibake.t
 xt/perlcritic.t
 xt/pod-coverage.t
 xt/pod.t

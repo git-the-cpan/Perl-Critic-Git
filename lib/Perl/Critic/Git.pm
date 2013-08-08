@@ -17,11 +17,11 @@ Perl::Critic::Git - Bond git and Perl::Critic to blame the right people for viol
 
 =head1 VERSION
 
-Version 1.1.5
+Version 1.2.0
 
 =cut
 
-our $VERSION = '1.1.5';
+our $VERSION = '1.2.0';
 
 
 =head1 SYNOPSIS
@@ -142,16 +142,21 @@ Parameters:
 
 =over 4
 
-=item * 'author'
+=item * author (mandatory)
 
-Mandatory, the name of the author to search violations for.
+The name of the author to search violations for.
 
-=item * 'since'
+=item * since (optional)
 
-Optional, a date (format YYYY-MM-DD) for which violations of the PBPs that are
-older will be ignored. This allows critiquing only recent changes, instead of
-forcing your author to fix an entire legacy file at once if only one line needs
-to be modified.
+A date (format YYYY-MM-DD) for which violations of the PBPs that are older will
+be ignored. This allows critiquing only recent changes, instead of forcing your
+author to fix an entire legacy file at once if only one line needs to be
+modified.
+
+=item * use_cache (default: 0)
+
+Use a cached version of C<git diff> when available. See
+L<Git::Repository::Plugin::Blame::Cache> for more information.
 
 =back
 
@@ -162,13 +167,16 @@ sub report_violations
 	my ( $self, %args ) = @_;
 	my $author = delete( $args{'author'} );
 	my $since = delete( $args{'since'} );
+	my $use_cache = delete( $args{'use_cache'} ) || 0;
 	
 	# Verify parameters.
 	croak 'The argument "author" must be passed'
 		if !defined( $author );
 	
 	# Analyze the file.
-	$self->_analyze_file();
+	$self->_analyze_file(
+		use_cache => $use_cache,
+	);
 	
 	# Run through all the violations and find the ones from the author we're
 	# interested in.
@@ -291,11 +299,22 @@ and caches the results to speed reports later.
 
 	$git_critic->_analyze_file();
 
+Arguments:
+
+=over 4
+
+=item * use_cache (default: 0)
+
+Use a cached version of C<git diff> when available.
+
+=back
+
 =cut
 
 sub _analyze_file
 {
-	my ( $self ) = @_;
+	my ( $self, %args ) = @_;
+	my $use_cache = delete( $args{'use_cache'} ) || 0;
 	
 	# If the file has already been analyzed, no need to do it again.
 	return
@@ -317,7 +336,10 @@ sub _analyze_file
 	# Do a git blame on the file.
 	my ( undef, $directory, undef ) = File::Basename::fileparse( $file );
 	my $repository = Git::Repository->new( work_tree => $directory );
-	$self->{'git_blame_lines'} = $repository->blame( $file );
+	$self->{'git_blame_lines'} = $repository->blame(
+		$file,
+		use_cache => $use_cache,
+	);
 	
 	# Run PerlCritic on the file.
 	my $critic = Perl::Critic->new(
@@ -386,15 +408,10 @@ sub _get_critique_level
 }
 
 
-=head1 AUTHOR
-
-Guillaume Aubert, C<< <aubertg at cpan.org> >>.
-
-
 =head1 BUGS
 
 Please report any bugs or feature requests through the web interface at
-Lhttps://github.com/guillaumeaubert/Perl-Critic-Git/issues>.
+L<https://github.com/guillaumeaubert/Perl-Critic-Git/issues>.
 I will be notified, and then you'll automatically be notified of progress on
 your bug as I make changes.
 
@@ -429,11 +446,16 @@ L<https://metacpan.org/release/Perl-Critic-Git>
 =back
 
 
+=head1 AUTHOR
+
+L<Guillaume Aubert|https://metacpan.org/author/AUBERTG>,
+C<< <aubertg at cpan.org> >>.
+
+
 =head1 ACKNOWLEDGEMENTS
 
-Thanks to ThinkGeek (L<http://www.thinkgeek.com/>) and its corporate overlords
-at Geeknet (L<http://www.geek.net/>), for footing the bill while I eat pizza
-and write code for them!
+I originally developed this project for ThinkGeek
+(L<http://www.thinkgeek.com/>). Thanks for allowing me to open-source it!
 
 
 =head1 COPYRIGHT & LICENSE
